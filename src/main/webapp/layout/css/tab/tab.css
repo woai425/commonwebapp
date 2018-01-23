@@ -1,0 +1,49 @@
+/* tab的css样式 */
+.nav.nav-tabs {
+  border-bottom: 0;
+}
+.nav.nav-tabs > li {
+  display: inline-block;
+  float: none;
+  margin-bottom: 0;
+  margin-right:5px;
+}
+.nav-tabs > li {
+  margin-left:0px;
+  margin-right:5px;
+}
+.nav.nav-tabs > li > a {
+  color:#dddddd;
+  font-family:Microsoft YaHei;
+  border: none;
+  background-color: #3498DB;
+  margin-right: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.nav.nav-tabs > li > a:hover {
+  border: none;
+  background-color: #2191DC;
+  color:#ffffff;
+}
+.nav.nav-tabs > li.active > a {
+  color:#ffffff;
+  background-color: #2191DC;
+}
+.nav.nav-tabs + .tab-content {
+  background: #FFF;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.nav {
+ margin-left: 0;
+ margin-bottom:0px;
+ list-style: none;
+}
+.nav ul, ol {
+ padding: 0;
+ margin: auto;
+}
+.nav li a{
+ background:red;
+}

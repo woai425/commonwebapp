@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 配置dataSource：通过JNDI获取dataSource对象 -->
+	<!-- 弃用掉JDNI数据库连接池
+	 <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName"> <value>java:comp/env/jdbc/portaltaglib</value> 
+		</property>
+	 </bean>
+	  -->
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:conf/*.properties" />
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="150" />
+		<property name="minIdle" value="5" />
+		<property name="maxWait" value="5000" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --> 
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <property name="testWhileIdle" value="true" />
+        <!-- 这里建议配置为TRUE，防止取到的连接不可用 --> 
+        <property name="testOnBorrow" value="true" /> 
+        <property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="true" /> 
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+		<property name="filters" value="stat" />
+	</bean>
+	
+	<!-- 配置 SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:conf/hibernate.cfg.xml"></property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.h3c.portal.business.common.*</value>
+				<value>com.h3c.framework.common.*</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 配置 文件上传 的相关项 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxInMemorySize" value="104857600"></property>
+	</bean>
+
+	<!-- 配置 Spring 的声明式事务 -->
+	<!-- 1. 配置 hibernate 的事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<!-- isGlobalRollbackOnParticipationFailure为false,则会让主事务决定回滚，如果当遇到exception加入事务失败时，调用者能继续在事务内决定是回滚还是继续。 
+			<property name="globalRollbackOnParticipationFailure" value="false" /> -->
+	</bean>
+	
+	<context:annotation-config />
+	<!-- 配置支持事务注解，指定使用哪个事务管理器 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 在指定的包下，扫描除@Controller注解的注解， -->
+	<context:component-scan
+		base-package="com.h3c.framework.*,com.h3c.portal.wbms.*,com.h3c.portal.business.*,com.h3c.portal.business.restful">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 定时器调度工厂 -->
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	</bean>
+
+	<!-- 客户端RestTemplate配置 <bean id="clientHttpRequestFactory" class="com.h3c.portal.business.common.httpreqfty.HttpComponentsClientHttpRequestFactory"> 
+		</bean> <bean id="restTemplate" class=" org.springframework.web.client.RestTemplate"> 
+		<constructor-arg ref="clientHttpRequestFactory" /> </bean> -->
+		<!-- spring整合activiti5-->
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<!--  databaseSchemaUpdate属性的取值：
+		flase： 默认值。activiti在启动时，会对比数据库表中保存的版本，如果没有表或者版本不匹配，将抛出异常。
+		true： activiti会对数据库中所有表进行更新操作。如果表不存在，则自动创建。
+		create_drop： 在activiti启动时创建表，在关闭时删除表（必须手动关闭引擎，才能删除表）。
+		drop-create： 在activiti启动时删除原来的旧表，然后在创建新表（不需要手动关闭引擎）。
+		-->
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+		 <!-- 生成流程图的字体 -->
+        <!-- <property name="activityFontName" value="${activiti.diagram.activityFontName}"/>
+              <property name="labelFontName" value="${activiti.diagram.labelFontName}"/> -->
+		
+		<!-- 
+	       Activit默认提供了4中历史级别： 
+		   none: 不保存任何历史记录，可以提高系统性能； 
+		   activity：保存所有的流程实例、任务、活动信息； 
+		   audit：也是Activiti的默认级别，保存所有的流程实例、任务、活动、表单属性； 
+		   full： 最完整的历史记录，除了包含audit级别的信息之外还能保存详细，例如：流程变量。 
+	      --> 
+        <property value="full" name="history"></property> 
+		<!-- activiti5 id生成器，在上线时使用，测试时采用自带的id生成规则 
+		<property name="idGenerator">
+			<bean class="org.activiti.engine.impl.persistence.StrongUuidGenerator" />
+		</property>
+		-->
+	</bean>
+
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+
+	<bean id="repositoryService" factory-bean="processEngine"
+		factory-method="getRepositoryService" />
+	<bean id="runtimeService" factory-bean="processEngine"
+		factory-method="getRuntimeService" />
+	<bean id="taskService" factory-bean="processEngine"
+		factory-method="getTaskService" />
+	<bean id="historyService" factory-bean="processEngine"
+		factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngine"
+		factory-method="getManagementService" />
+	<bean id="formService" factory-bean="processEngine"
+		factory-method="getFormService" />
+</beans>

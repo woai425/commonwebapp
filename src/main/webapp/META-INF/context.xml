@@ -1,0 +1,39 @@
+<Context>
+<!--
+	<Resource 
+			name="jdbc/portaltaglib" 
+			type="javax.sql.DataSource" 
+			driverClassName="com.mysql.jdbc.Driver" 
+			maxIdle="5" 
+			maxWait="5000" 
+			validationQuery="select 1 from dual" 
+			username="root"
+			password="h3c"
+			url="jdbc:mysql://192.168.101.30:3306/portaltaglib?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false"
+			maxActive="150"/>
+-->
+<!-- 超过时间限制是否回收   
+<property name="removeAbandoned" value="true" />  -->
+<!-- 超时时间；单位为秒。180秒=3分钟 
+<property name="removeAbandonedTimeout" value="180" /> -->   
+<!-- 关闭abanded连接时输出错误日志   
+<property name="logAbandoned" value="true" />  -->
+
+<Resource 
+         name="jdbc/portaltaglib"
+         factory="com.alibaba.druid.pool.DruidDataSourceFactory"
+         auth="Container"
+         type="com.alibaba.druid.pool.DruidDataSource"
+         driverClassName="com.mysql.jdbc.Driver"
+         url="jdbc:mysql://192.168.101.30:3306/portaltaglib?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false"
+         username="root"
+         password="h3c"
+         maxIdle="5" 
+         maxActive="150"
+         maxWait="5000"
+         removeabandoned="true"
+         removeabandonedtimeout="60"
+         logabandoned="false"
+         filters="stat"/>
+</Context>
+

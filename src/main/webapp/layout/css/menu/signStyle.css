@@ -1,0 +1,5 @@
+.tree,.tree ul,.tree li{list-style:none;margin:0;padding:0;zoom: 1;}
+.tree ul{margin-left:8px;}
+.tree li a:hover,.tree li a.tree-parent:hover,.tree li a:focus,.tree li a.tree-parent:focus,.tree li a.tree-item-active{color:#000;border:1px solid#eee;background-color:#fafafa;}
+.tree li a:focus,.tree li a.tree-parent:focus,.tree li a.tree-item-active{border:1px solid #e2f3fb;background-color:#f2fafd;}
+.tree ul.tree-group-collapsed{display:none;}

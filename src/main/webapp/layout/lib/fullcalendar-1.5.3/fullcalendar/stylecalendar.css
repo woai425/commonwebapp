@@ -1,0 +1,261 @@
+.widget {
+	font-family:Microsoft YaHei;
+	font-size:13px;
+    background:#fff;
+    clear: both;
+    margin-bottom: 0px;
+    margin-top: 0;
+    border: 1px solid #404040;
+    color:#fff;
+}
+
+.widget-title {
+    background: #404040;
+    height: 36px;
+}
+
+.widget.green {
+    border: 1px solid #74B749;
+}
+.widget.green .widget-title {
+    background: #74B749;
+}
+
+.widget.blue {
+    border: 0px solid #3498DB;
+}
+.widget.blue .widget-title {
+    background: #3498DB;
+}
+.widget.white {
+    border: 0px solid #3B5998;
+}
+.widget.white .widget-title {
+    background: #3B5998;
+}
+.widget.purple {
+    border: 1px solid #9D4A9C;
+}
+.widget.purple .widget-title {
+    background: #9D4A9C;
+}
+
+.widget.yellow {
+    border: 1px solid #FFB400;
+}
+.widget.yellow .widget-title {
+    background: #FFB400;
+}
+
+.widget.orange {
+    border: 1px solid #F37B53;
+}
+.widget.orange .widget-title {
+    background: #F37B53;
+}
+
+.widget.red {
+    border: 1px solid #DE577B;
+}
+.widget.red .widget-title {
+    background: #DE577B;
+}
+
+/*gray full*/
+
+.widget.gray-full {
+    border: 1px solid #575757;
+}
+.widget.gray-full .widget-title, .widget.gray-full .widget-body {
+    background: #575757;
+    color: #fff;
+}
+
+/*purple full*/
+
+.widget.purple-full {
+    border: 1px solid #9D4A9C;
+}
+.widget.purple-full .widget-title, .widget.purple-full .widget-body {
+    background: #9D4A9C;
+    color: #fff;
+}
+
+/*yellow full*/
+
+.widget.yellow-full {
+    border: 1px solid #FFB400;
+}
+.widget.yellow-full .widget-title, .widget.yellow-full .widget-body {
+    background: #FFB400;
+    color: #fff;
+}
+
+/*blue full*/
+
+.widget.blue-full {
+    border: 1px solid #4A8BC2;
+}
+.widget.blue-full .widget-title, .widget.blue-full .widget-body {
+    background: #4A8BC2;
+    color: #fff;
+}
+
+/*red full*/
+.widget.red-full {
+    border: 1px solid #DE577B;
+}
+.widget.red-full .widget-title, .widget.red-full .widget-body {
+    background: #DE577B;
+    color: #fff;
+}
+
+/*green full*/
+.widget.green-full {
+    border: 1px solid #74B749;
+}
+.widget.green-full .widget-title, .widget.green-full .widget-body {
+    background: #74B749;
+    color: #fff;
+}
+
+/*white full*/
+.widget.white-full {
+    border: 1px solid #fff;
+}
+
+.widget.white-full .widget-title {
+    border-bottom: 1px solid #ccc;
+    color: #404040;
+}
+
+.widget.white-full .widget-title h4 {
+    color: #404040;
+    padding-left: 0;
+}
+.widget.white-full .tools a {
+    color: #ccc;
+}
+.widget.white-full .widget-title, .widget.white-full .widget-body {
+    background: #fff;
+}
+.widget.white-full .widget-body, .widget.white-full .widget-title .actions {
+    padding-left: 0;
+    padding-right: 0;
+}
+/*-------*/
+
+.widget-title > h4 {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 11px 10px 15px;
+    line-height: 12px;
+    margin: 0;
+    font-family: 'MyriadPro-Regular';
+}
+
+.widget-title > h4 i {
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+.widget-title span.tools {
+    float: right;
+    margin: 2px 0 0;
+    padding: 6px 5px 6px 10px;
+}
+
+.widget-title span.tools > a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.widget-title span.tools > a:hover {
+    text-decoration: none;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    opacity: .7;
+}
+
+.widget-title .btn-group {
+    margin-right:5px;
+    margin-top: -2px;
+}
+
+.widget-title .btn-group .caret {
+    margin-top: 8px;
+    margin-left: 3px;
+}
+
+.widget-body {
+    padding: 15px 15px;
+}
+
+
+/*calender*/
+
+.has-toolbar.fc {
+    margin-top: 50px;
+}
+
+.fc-header-title {
+	
+    display: inline-block;
+    margin-top: -50px;
+    vertical-align: top;
+}
+
+.fc-view {
+	font-family:Microsoft YaHei;
+    margin-top: -50px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.fc-state-default, .fc-state-default .fc-button-inner {
+	font-family:Arial;
+    background: #F3F3F3 !important;
+    border-color: #DDDDDD;
+    border-style: none solid;
+    color: #646464;
+}
+
+.fc-state-active, .fc-state-active .fc-button-inner,
+.fc-state-hover, .fc-state-hover .fc-button-inner{
+    background:  #3498DB !important;
+    color: #fff !important;
+}
+
+.fc-event-skin {
+    background-color: #4a8bc2 !important;
+    border-color: #4a8bc2 !important;
+    color: #FFFFFF !important;
+}
+
+.fc-grid th {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #F3F3F3 !important;
+}
+/* 标题字体调整 */
+.fc-header-title h2 {
+    font-size: 18px !important;
+    color: #666;
+
+}
+.fc-state-highlight{
+	background: #CCCCCC;
+}
+
+
+
+
+

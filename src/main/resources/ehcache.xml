@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.sf.net/ehcache.xsd">
+	<diskStore path="java.io.tmpdir" />
+	<!-- <cacheManagerPeerProviderFactory class="net.sf.ehcache.distribution.jgroups.JGroupsCacheManagerPeerProviderFactory" 
+		properties="channel=ehcache^connect=UDP(mcast_addr=231.12.21.132;mcast_port=45566;ip_ttl=32; 
+		mcast_send_buf_size=150000;mcast_recv_buf_size=80000): PING(timeout=2000;num_initial_members=6): 
+		MERGE2(min_interval=5000;max_interval=10000): FD_SOCK:VERIFY_SUSPECT(timeout=1500): 
+		pbcast.NAKACK(gc_lag=10;retransmit_timeout=3000): UNICAST(timeout=5000): 
+		pbcast.STABLE(desired_avg_gossip=20000): FRAG: pbcast.GMS(join_timeout=5000;join_retry_timeout=2000;shun=false;print_local_addr=false)" 
+		propertySeparator="^" /> -->
+	<defaultCache maxElementsInMemory="10000" eternal="true"
+		overflowToDisk="true" timeToIdleSeconds="0" timeToLiveSeconds="0"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120">
+	</defaultCache>
+	<!--         
+			配置自定义缓存        
+			maxElementsInMemory：缓存中允许创建的最大对象数        
+			eternal：缓存中对象是否为永久的，如果是，超时设置将被忽略，对象从不过期。        
+			timeToIdleSeconds：TTI用于设置对象在cache中的最大闲置时间，就是 在一直不访问这个对象的前提下，这个对象可以在cache中的存活时间，                    
+			如果该值是 0 就意味着元素可以停顿无穷长的时间。        
+			timeToLiveSeconds：TTL用于设置对象在cache中的最大存活时间，就是无论对象访问或是不访问(闲置),这个对象在cache中的存活时间，如果该值是0就意味着元素可以停顿无穷长的时间。       
+			overflowToDisk：内存不足时，是否启用磁盘缓存。        
+			memoryStoreEvictionPolicy：缓存满了之后的淘汰算法。   
+	--> 
+	<cache name="SimplePageCachingFilter" maxElementsInMemory="10000"
+		eternal="false" overflowToDisk="false" timeToIdleSeconds="900"
+		timeToLiveSeconds="1800" memoryStoreEvictionPolicy="LFU" />
+</ehcache>

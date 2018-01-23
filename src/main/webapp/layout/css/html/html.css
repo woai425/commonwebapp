@@ -1,0 +1,395 @@
+@CHARSET "UTF-8";
+/*<<**********************html>button使用的样式*********************************/
+.btn {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	border: 1px solid #c8c6c6;
+	white-space: nowrap;
+	display: inline-block;
+	/*background: #ebebeb;*/
+}
+
+.btn:hover {
+	background-color: #217BCC;
+	*background-color: #217BCC;
+	background-image: -moz-linear-gradient(top, #217BCC, #217BCC);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#217BCC),
+		to(#217BCC));
+	background-image: -webkit-linear-gradient(top, #217BCC, #217BCC);
+	background-image: -o-linear-gradient(top, #217BCC, #217BCC);
+	background-image: linear-gradient(to bottom, #217BCC, #217BCC);
+	background-repeat: repeat-x;
+	border: 1px solid #217BCC;
+	color: #FFFFFF;
+}
+
+.btn-auth-grey {
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: Alpha(Opacity = 40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+
+.btn-auth-grey:HOVER {
+	cursor: default;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff),
+		to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',
+		endColorstr='#ffe6e6e6', GradientType=0);
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	*background-color: #e6e6e6;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled= false);
+	border: 1px solid #bbbbbb;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: Alpha(Opacity = 40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+/*************************html>button使用的样式******************************>>*/
+
+/*<<**********************html>popupbox使用的样式*********************************/
+/* ------------框架弹出框专用CSS-------------------- */
+.brand {
+	font-family: georgia, serif;
+}
+
+.brand .first {
+	color: #ccc;
+	font-style: italic;
+}
+
+.brand .second {
+	color: #fff;
+	font-weight: bold;
+	ont-size: 28px;
+	width: 300px;
+}
+
+.cancelBox {
+	color: #ffffff;
+	position: relative;
+	cursor: pointer;
+	float: right;
+	height: 25px;
+	width: 28px;
+	font-weight: bold;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	font-size: 20px;
+}
+
+.cancelBox:hover {
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: 0.9;
+	filter: alpha(opacity = 90);
+}
+/*************************html>popupbox使用的样式******************************>>*/
+
+/*<<**********************html>mask使用的样式*********************************/
+/* ------------框架遮罩专用CSS-----------------*/
+/* ------------遮罩显示1-----------------*/
+.mask {
+	position: absolute;
+	top: 0px;
+	filter: alpha(opacity = 80);
+	background-color: #333333;
+	z-index: 1002;
+	left: 0px;
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	text-align: center;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80)
+}
+
+/* ------------遮罩显示2-----------------*/
+.mask2 {
+	position: absolute;
+	top: 0px;
+	z-index: 1002;
+	left: 0px;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+/* ------------grid遮罩显示-----------------*/
+.grid-mask {
+	position: absolute;
+}
+/* ------------进度条-----------------*/
+.h3c-loading {
+	
+}
+/*************************html>mask使用的样式******************************>>*/
+
+/*<<**********************html>checkbox使用的样式*********************************/
+.h3c-check-col {
+	width: 17px;
+	height: 17px;
+	padding: 0 0 0 0 !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url( ../../../images/checkbox/h3c-grid-check-col.png);
+}
+
+.h3c-check-col-on {
+	width: 17px;
+	height: 17px;
+	padding: 0 0 0 0 !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image:
+		url( ../../../images/checkbox/h3c-grid-check-col-on.png);
+}
+
+/*checkbox通过的disable样式*/
+.h3c-check-col-gray {
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: Alpha(Opacity = 40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+/*************************html>checkbox使用的样式******************************>>*/
+
+/*<<************************html>panel使用的样式*******************************/
+/* ------------框架h3c-panel(面板)标签专用CSS-------------------- */
+.panel .panel-heading:before, .panel .panel-heading:after, .panel {
+	position: relative;
+	background: #ffffff;
+	padding: 20px 0px;
+	border: 0;
+	margin-bottom: 30px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.panel.panel-headerless .panel-body {
+	padding-top: 0;
+}
+
+.panel .panel-heading {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	background: none;
+	font-size: 17px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #f5f5f5;
+}
+
+.panel .panel-heading>.panel-title {
+	float: left;
+	font-size: 17px;
+}
+
+.panel .panel-heading>.panel-title>a {
+	color: inherit;
+}
+
+.panel .panel-heading>.panel-options {
+	float: right;
+	font-size: 13px;
+}
+
+.panel .panel-heading>.panel-options a {
+	display: inline-block;
+	color: #979898;
+	margin-left: 7px;
+	line-height: 1;
+}
+
+.panel .panel-heading>.panel-options a i {
+	line-height: 1;
+}
+
+.panel .panel-heading>.panel-options a[data-toggle="panel"] span {
+	display: block;
+	font-size: 16px;
+	width: 10px;
+	text-align: center;
+}
+
+.panel .panel-heading>.panel-options a[data-toggle="panel"] span.expand-icon
+	{
+	display: none;
+	font-size: 18px;
+}
+
+.panel .panel-heading>.panel-options a[data-toggle="remove"] {
+	font-size: 18px;
+}
+
+.panel .panel-heading>.panel-options a:first-child {
+	margin-left: 0;
+}
+
+.panel .panel-heading>.panel-options .nav-tabs {
+	border: 0;
+}
+
+.panel .panel-body {
+	padding: 0;
+	padding-top: 20px;
+	color: #979898;
+}
+
+.panel .panel-body.no-padding {
+	padding: 0;
+	margin-top: -2px;
+	margin-left: -30px;
+	margin-right: -30px;
+	margin-bottom: -20px;
+}
+
+.panel .panel-body.panel-border {
+	border-top: 1px solid #f5f5f5;
+	padding-top: 30px;
+}
+
+.panel .panel-body p {
+	margin-bottom: 0;
+}
+
+.panel .panel-body p+p {
+	margin-top: 15px;
+}
+
+.panel .panel-disabled {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.panel.collapsed .panel-heading .panel-options a[data-toggle="panel"] .collapse-icon
+	{
+	display: none;
+}
+
+.panel.collapsed .panel-heading .panel-options a[data-toggle="panel"] .expand-icon
+	{
+	display: block;
+}
+
+.panel.collapsed>.panel-body, .panel.collapsed>.table {
+	display: none;
+}
+
+.panel.panel-border {
+	border: 1px solid #cccccc;
+}
+
+.panel.panel-shadow {
+	-webkit-box-shadow: 0 1px 1px rgba(0, 1, 1, .08);
+	-moz-box-shadow: 0 1px 1px rgba(0, 1, 1, .08);
+	box-shadow: 0 1px 1px rgba(0, 1, 1, .08);
+}
+/*************************html>panel使用的样式******************************>>*/
+
+
+/*<<**********************html>groupbox使用的样式*********************************/
+fieldset {
+  padding:10px;
+  margin: 0px;
+  border: 0;
+  border: #CCCCCC dashed 1px;
+}
+legend {
+  display: block;
+  padding: 0 0 0 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 0px;
+  border: 0;
+  border-bottom: 0px;
+  
+  color: #217BCC;
+  font-weight: 400;
+  background: none;
+}
+legend small {
+  font-size: 15px;
+  color: #999999;
+}
+legend + .control-group {
+  margin-top: 20px;
+  -webkit-margin-top-collapse: separate;
+}
+/*************************html>groupbox使用的样式******************************>>*/
+
+/*<<**********************html>file upload使用的样式beg*********************************/
+.h3c-upload-box {
+	position: relative;
+	float: left;
+}
+
+.h3c-uploadFile {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	cursor: pointer;
+	overflow: hidden;
+	width:250px;
+}
+
+.h3c-textbox {
+	float: left;
+	padding: 8px;
+	color: #999;
+	line-height: 20px;
+	border: 1px #ccc solid;	
+}
+
+.h3c-link {
+	float: left;
+	display: inline-block;
+	padding: 10px 10px;
+	text-align:center;
+	margin:0px 0px ;
+	color: #fff;
+	font: 14px "Microsoft YaHei", Verdana, Geneva, sans-serif;
+	cursor: pointer;
+	background-color: #0099ff;
+	line-height: 10px;
+	text-decoration: none;
+	
+}
+/*************************html>file upload使用的样式end******************************>>*/

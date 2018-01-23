@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+/* ------------框架GRID标签专用CSS-------------------- */
+.h3c-table {
+  width: 100%;
+  margin-bottom: 5px;
+  table-layout:fixed ;
+}
+.h3c-table th,
+.h3c-table td {
+  padding: 4px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+  
+  /*自动隐藏超出的字体,不换行*/ 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
+}
+.h3c-table th {
+  font-weight: bold;
+}
+.h3c-table thead th {
+  vertical-align: bottom;
+}
+.h3c-table caption + thead tr:first-child th,
+.h3c-table caption + thead tr:first-child td,
+.h3c-table colgroup + thead tr:first-child th,
+.h3c-table colgroup + thead tr:first-child td,
+.h3c-table thead:first-child tr:first-child th,
+.h3c-table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+.h3c-table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+
+.h3c-table tbody tr.odd td {
+  /*background-color: #dff0d8;*/
+}
+.h3c-table tbody tr.even td {
+  background-color: #F9F9F9;
+}
+
+.h3c-table tbody tr.odd:hover td {
+  background-color: #d0e9c6;
+}
+.h3c-table tbody tr.even:hover td {
+  background-color: #ebcccc;
+}
+
+/***********************grid字段排序*******************************/
+.h3c-ui-datatable .h3c-ui-sortable-column-icon{display:inline-block;margin:-3px 0px -3px 2px;}
+.h3c-ui-icon { width: 16px; height: 16px; background-image: url(../../../images/grid/ui-icons_default_256x240.png); display：block; }
+.h3c-ui-icon-carat-2-n-s:hover{ width: 16px; height: 16px; background-image: url(../../../images/grid/ui-icons_hover_256x240.png); display：block; cursor:pointer;}
+.h3c-ui-icon-carat-2-n-s { background-position: -128px 0; }
+.h3c-ui-icon-triangle-1-n { background-position: 0 -16px; cursor:pointer;}
+.h3c-ui-icon-triangle-1-s { background-position: -64px -16px; cursor:pointer;}
+
+/*<<**********************grid>radio使用的样式*********************************/
+.h3c-grid-radio-col {
+	width: 17px;
+	height: 17px;
+	padding: 0 0 0 0 !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url( ../../../images/radio/h3c-grid-radio-col.png);
+}
+
+.h3c-grid-radio-col-on {
+    width:17px;
+    height:17px;
+    padding: 0 0 0 0 !important;
+    background-position: center center;
+	background-repeat: no-repeat;
+	background-image:
+		url( ../../../images/radio/h3c-grid-radio-col-on.png);
+}
+/*************************grid>radio使用的样式******************************>>*/
+
+/*<<**********************grid>checkbox使用的样式******************************/
+.h3c-grid-check-col {
+	width: 17px;
+	height: 17px;
+	padding: 0 0 0 0 !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url( ../../../images/checkbox/h3c-grid-check-col.png);
+}
+
+.h3c-grid-check-col-on {
+    width:17px;
+    height:17px;
+    padding: 0 0 0 0 !important;
+ 	background-position: center center;
+	background-repeat: no-repeat;
+	background-image:
+		url( ../../../images/checkbox/h3c-grid-check-col-on.png);
+}
+/***********************grid>checkbox使用的样式*****************************>>*/
+
+/*<<<**********************grid的纵向滚动条*******************************/
+::-webkit-scrollbar
+{
+    width: 5px;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color: #FFFFFF;
+}
+::-webkit-scrollbar-thumb:vertical
+{
+    height: 20px;
+    background-color: #aaaaaa;
+    -webkit-border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:horizontal
+{
+    width: 5px;
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+/***********************grid的纵向滚动条******************************>>>*/

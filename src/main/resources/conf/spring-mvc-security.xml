@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/security 
+        http://www.springframework.org/schema/security/spring-security.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<http entry-point-ref="digestEntryPoint" >
+	<!-- 关闭spring security的csrf，不然要去验证security里面的token，这样非get就能成功了 -->
+		<csrf disabled="true"/>
+		<intercept-url pattern="/rest/**" access="isAuthenticated()" />
+		<!-- Adds Support for basic authentication 
+		<http-basic entry-point-ref="portalBasicAuthEntryPoint"  />-->
+		<custom-filter ref="basicFilter" position="BASIC_AUTH_FILTER"/>
+		<!-- 把digestFilter在过滤器链中的位置放在basicFilter后面-->
+		<custom-filter ref="digestFilter" after="BASIC_AUTH_FILTER" />
+	</http>
+<!-- 基础认证过滤器 -->
+	<beans:bean id="portalBasicAuthEntryPoint"
+		class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
+		<beans:property name="realmName" value="Basic Auth" />
+	</beans:bean>
+	<beans:bean id="basicFilter"
+		class="com.h3c.framework.web.security.restauth.server.basic.H3cBasicAuthenticationFilter">
+		<beans:constructor-arg index="0" ref="authManager"/>
+		<beans:constructor-arg index="1" ref="portalBasicAuthEntryPoint"/>
+	</beans:bean>
+	
+<!-- 摘要认证过滤器 -->
+	<beans:bean id="digestFilter"
+		class="com.h3c.framework.web.security.restauth.server.digest.H3cDigestAuthenticationFilter">
+		<beans:property name="userDetailsService" ref="userService" />
+		<beans:property name="authenticationEntryPoint" ref="digestEntryPoint" />
+	</beans:bean>
+	<beans:bean id="digestEntryPoint"
+		class="org.springframework.security.web.authentication.www.DigestAuthenticationEntryPoint">
+		<beans:property name="realmName"
+			value="Contacts Realm via Digest Authentication" />
+		<beans:property name="key" value="acegi" />
+	</beans:bean>
+<!-- 对数据库存储的管理员用户名和密码加密处理 -->
+	<authentication-manager id="authManager">
+		<authentication-provider user-service-ref="userService"/> 
+		<authentication-provider>
+            <password-encoder hash="md5" />
+			<jdbc-user-service id="userService"
+				data-source-ref="dataSource"
+				users-by-username-query="select loginname username,passwd password,useful enabled from sysuser where loginname =?" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>

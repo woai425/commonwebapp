@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<mvc:interceptors>
+		<!-- 安全拦截器，对请求进行权限校验，防止越权  -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**.do" />	
+			<bean class="com.h3c.framework.core.interceptor.AuthorityInterceptor" />
+		</mvc:interceptor>
+		<!-- 业务拦截器，请求URL处理，-->
+		<mvc:interceptor>
+			<mvc:mapping path="/**.do" />
+			<bean class="com.h3c.framework.core.interceptor.BusinessInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- mvc:annotation-driven 开启注解，没有这句话会报No mapping found for HTTP request 
+		with URI [/login.do] in DispatcherServlet with name 'spring' . -->
+	<!-- 解决中文乱码 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 声明自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面 -->
+	<aop:aspectj-autoproxy expose-proxy="true"></aop:aspectj-autoproxy>
+<!-- 包扫描 -->
+	<context:component-scan
+		base-package="com.h3c.portal.business.*,com.h3c.portal.wbms.*,com.h3c.framework.*"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- <mvc:default-servlet-handler /> -->
+	<!--对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+</beans>

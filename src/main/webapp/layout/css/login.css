@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+.imc_ui_log_body{
+    margin: 0px;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+    overflow:hidden;
+    scrolling:no;
+}
+.imc_ui_log_content{ width:100%; height:100%;margin:0 auto; overflow:hidden;}
+.imc_ui_log_box{ width:266px; min-height:265px; margin:160px auto auto 140px; background: transparent !important;}
+.imc_ui_log_box_top{ width:266px; height:74px; position:relative; }
+
+.imc_ui_log_box_bg{ }
+.imc_ui_log_box_center{  }
+.imc_ui_log_box_center td{ color:#8e8e8e; line-height:28px;}
+.imc_ui_bg_user{width:266px; height:40px;  background: #ffffff; }
+.imc_ui_bg_user:focus{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.imc_ui_bg_pwd{width:266px; height:40px; background: #ffffff; }
+.imc_ui_bg_pwd:focus{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.imc_ui_bg_checkcode{width:177px; height:30px; padding-left:45px; background:url("images/checkcode_input.png.jsf?ln=primefaces-cloud") no-repeat; }
+.imc_ui_log_input{  background: transparent !important; border: 0 !important; padding:0px !important; color:#9f9e9e;height:28px; border:0; width:170px; vertical-align:middle;}
+
+.imc_ui_log_errmsg{ color:black; width:294px; line-height:18px; margin-bottom:0px; }
+.imc_ui_log_errmsg td{line-height:18px;color:#e60012;}
+
+.imc_ui_log_errmsg2{ color:#FFFFFF; width:294px; line-height:18px; margin-bottom:0px; }
+.imc_ui_log_errmsg2 td{line-height:18px;color:#FFFFFF;}
+
+.imc_ui_log_box_center_bottom{}
+.imc_ui_log_box_bottom{ }
+
+.imc_ui_login_btn{color:#666666 !important; width:74px; height:24px; background:url("images/login_btn.png.jsf?ln=primefaces-cloud") no-repeat; border:0; cursor:pointer;}
+
+.imc_ui_log_tips{ text-align:center; margin-top:10px;}
+.imc_ui_log_tips_txt{color:#565656 !important; }
+
+/*按钮css控制*/
+.h3c-button{
+    background: rgb(144, 194, 241) !important;
+	color: #ffffff;
+	width: 266px;
+	height: 40px;
+	margin: 0;
+	border: none;
+	-moz-border-radius: 0px 0px 0px 0px !important;
+	-webkit-border-radius: 0px 0px 0px 0px !important;
+	border-radius: 0px 0px 0px 0px !important;
+}
+.h3c-button:hover{
+    background: rgba(0, 0, 186, 0.4) !important;
+}
+.h3c-button .ui-button-text{
+	font-size: 18px !important;
+	color: #ffffff !important;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<leaf-config>
+    <config name="PORTAL_CLUSTER_RMI_CACHE" value="false"/><!-- 是否RMI调用独立的缓存信息 -->
+    <config name="PORTAL_SUPER_USERS" value="KF00,KF01,admin,KF02,KF03,KF04"/><!-- 系统超级用户,拥有所有权限,欢迎页面是AMain.jsp,其他人员都进入Main.jsp-->
+    <config name="DUP_LOGIN_CHECK" value="2" /><!-- 重复登录校验，0为不校验  1为校验[踢掉之前的用户] 2为校验[当前用户无法登录] -->
+    <config name="SIGN_INOROUT_RECORD" value="1" /><!-- 系统登录登出日志记录，0为不记录  1为记录 -->
+    <config name="SESSN_TMOUT_CNTL" value="1" /><!-- 系统会话超时控制，0为不处理  1为自动注销退出后回到登录页面 -->
+    <config name="QUARTZ_JOB_INIT_CLASS" value="com.h3c.portal.business.common.cronjobfty.initimpl.QuartzJobInitImpl" /><!-- quartz调度器初始化实现类 -->
+    <config name="PSW_TMOUT_CNTL" value="30" /><!-- 密码有效期控制，单位为天，0和不设置表示不限制密码有效期  -->
+    <config name="PSW_STRENGTH_CHECK" value="true" /><!-- 后台密码強度控制，true为校验强度，false和不输入为不校验强度  -->
+    <config name="FAILED_LOGIN_ATTEMPTS_CNTL" value="3" /><!-- 未成功的登录尝试控制，单位为次，0和不设置表示不限制失败次数  -->
+    <config name ="DEFALUT_ROLE_ID" value="db39d014b4834180bd6d5a7f6aa97da3,dac23fb72ad94c96b59a6f80472b882b,8d5b410b89b141d291103f458303da89,899168fa365f114a1f12cb98e200fec7"/>
+</leaf-config>

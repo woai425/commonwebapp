@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<script type="text/javascript">
+	function getContextPath() {
+		var pathName = document.location.pathname;
+		var index = pathName.substr(1).indexOf("/");
+		var result = pathName.substr(0, index + 1);
+		return result;
+	}
+	
+	var tagert_URL = getContextPath()+"/loginController.do?openLogin";
+	if (self == top) {
+		window.location.href = tagert_URL;
+	} else {
+		top.location.href = tagert_URL;
+	}
+</script>
+<body>
+
+</body>
+</html>

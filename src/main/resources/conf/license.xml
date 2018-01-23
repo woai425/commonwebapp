@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<h3c-licenses>
+	<license version="1.0">
+		<title>PORTAL许可</title>
+		<type>GENERAL</type>
+		<desc>PORTAL定制</desc>
+		<component>h3c</component>
+		<resources />
+		<appserver>any</appserver>
+		<expiration>2016-12-31</expiration>
+		<sessions>unlimited</sessions>
+		<cpus>unlimited</cpus>
+		<units />
+		<opsystem>any</opsystem>
+		<appcontext>portal</appcontext>
+		<logincount>unlimited</logincount>
+		<ip>any</ip>
+		<database />
+		<mac>any</mac>
+		<serial>Ku-hi-Jh-CF-ar-129109735729538</serial>
+		<signature>ZGEwOGE4ZTUzMmFkOTllZjRiYjUzOTc0ODIxZDU2YTg4MTBjYjJiYQ==</signature>
+	</license>
+</h3c-licenses>

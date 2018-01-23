@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">  
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >  
+    <appender name="appendConsole" class="org.apache.log4j.ConsoleAppender">  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern"     
+                value="%8r [%t] %-5p %c - %m%n %d" />  
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">  
+            <param name="levelMin" value="info" />  
+            <param name="levelMax" value="fatal" />  
+            <param name="AcceptOnMatch" value="true" />  
+        </filter>  
+    </appender>  
+  
+    <appender name="appendFile" class="org.apache.log4j.RollingFileAppender">     
+        <param name="File" value="D:\\portal.log" />
+        <param name="Append" value="true" />  
+        <param name="MaxBackupIndex" value="10" />  
+        <param name="MaxFileSize" value="100MB" /> 
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss SSS} [%t] %-5p %c - %m%n" />  
+        </layout>  
+    </appender>
+    <!--  Appender log  data to mysql db-->
+   <!--  <appender name="appendDB" class="org.apache.log4j.jdbc.JDBCAppender">     
+         <param name="driver" value="com.mysql.jdbc.Driver" />  
+         <param name="URL" value="jdbc:mysql://192.168.100.101:3306/jlportal" />  
+         <param name="user" value="root" />  
+         <param name="password" value="root" />  
+         <param name="bufferSize" value="100" />  
+         <layout class="org.apache.log4j.PatternLayout">  
+             <param name="ConversionPattern"  
+                 value="insert into t_portal_operLog(logType,funId,objType,objID,operType,operResult,failureReason,operUserId, sessionId, recordTime, description) 
+values('%X{logType}', '%X{funId}', '%X{objType}', '%X{objID}', '%X{operType}', '%X{operResult}', '%X{failureReason}', '%X{operUserId}', '%X{sessionId}', '%X{recordTime}', '%X{description}')"/>
+		</layout> 
+         
+         <filter class="org.apache.log4j.varia.LevelRangeFilter">  
+ 			<param name="levelMin" value="error" />  
+			<param name="levelMax" value="fatal" />  
+			<param name="AcceptOnMatch" value="true" /> 
+		 </filter>          
+	</appender>
+
+	<appender name="portalAppendFile" class="org.apache.log4j.RollingFileAppender">     
+		<param name="File" value="D:\\/portal.log" />
+		<param name="Append" value="true" />  
+		<param name="MaxBackupIndex" value="10" />  
+		<param name="MaxFileSize" value="100MB" /> 
+		<layout class="org.apache.log4j.PatternLayout">  
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss SSS} [%t] %-5p %c - %m%n" />  
+		</layout>  
+	</appender>
+    
+  	<logger name="portalLogger">
+		<level value="INFO"/>
+		<appender-ref ref="portalAppendFile"/>
+	</logger>
+     -->
+  	<logger name="org.springframework">
+		<level value="WARN" />
+	</logger>
+
+	<logger name="org.hibernate">
+		<level value="WARN" />
+	</logger>
+  
+    <root>  
+        <priority value ="info"/>  
+      		 <appender-ref ref="appendFile"/>  
+      		 <appender-ref ref="appendConsole"/>   
+    </root>  
+</log4j:configuration>  
